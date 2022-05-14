@@ -1,0 +1,21 @@
+@import 'styles/vars';
+
+.day {
+  position: relative;
+  border: 0.5px solid $gray;
+  transition: 0.4s;
+}
+
+.disabled {
+  background-color: $light-gray;
+}
+
+.dayNumber {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: $gray;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1;
+}

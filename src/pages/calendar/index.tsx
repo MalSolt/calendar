@@ -1,7 +1,9 @@
-import React from 'react'
+import { Calendar } from "widgets"
 
 export const CalendarPage = () => {
   return (
-    <div>Calendar</div>
+    <div>
+      <Calendar />
+    </div>
   )
 }

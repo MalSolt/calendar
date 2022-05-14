@@ -1,0 +1,22 @@
+@import 'styles/vars';
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.controllers {
+  width: 310px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.month {
+  font-size: 20px;
+  font-weight: 500;
+  color: $dark-blue;
+  line-height: 1;
+}

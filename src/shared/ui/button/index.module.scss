@@ -1,0 +1,30 @@
+@import 'styles/vars';
+
+.active,
+.disabled {
+  width: 100px;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  font-size: 18px;
+  color: $white;
+  transition: 0.2s;
+}
+
+.active {
+  cursor: pointer;
+  background-color: $dark-blue;
+  &:hover {
+    background-color: $blue;
+  }
+
+  &:active {
+    background-color: $blue;
+  }
+}
+
+.disabled {
+  background-color: $light-gray;
+  cursor: not-allowed;
+}
