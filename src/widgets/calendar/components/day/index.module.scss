@@ -1,13 +1,37 @@
 @import 'styles/vars';
 
 .day {
+  padding-left: 3px;
+  vertical-align: top;
   position: relative;
   border: 0.5px solid $gray;
   transition: 0.4s;
+  cursor: pointer;
+  background-color: $white;
+  height: 110px;
+  &:hover {
+    background-color: $extra-light-gray;
+  }
+}
+
+.today {
+  background-color: $light-green;
 }
 
 .disabled {
   background-color: $light-gray;
+  &:hover {
+    background-color: $light-gray;
+  }
+}
+
+.task {
+  margin-bottom: 3px;
+}
+
+.tasksInfo {
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .dayNumber {

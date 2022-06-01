@@ -1,15 +1,15 @@
 @import 'styles/vars';
 
 .wrapper {
-  margin: 10px;
-  width: 1050px;
+  position: relative;
 }
 
 .table {
   margin-top: 10px;
   border-spacing: 0px 0px;
-  height: 660px;
   border-collapse: collapse;
+  height: 720px;
+  width: 100%;
 
   thead {
     background-color: $dark-blue;
@@ -18,7 +18,7 @@
 
   th {
     color: $white;
-    width: 150px;
+    width: 14%;
     &:first-child {
       border-top-left-radius: 20px;
     }

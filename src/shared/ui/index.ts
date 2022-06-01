@@ -1,2 +1,6 @@
+export { Sidepanel } from './sidepanel'
 export { Button } from './button'
 export { Today } from './today'
+export { Task } from './task'
+export { Modal } from './modal'
+export { Input } from './input'

@@ -1,10 +1,10 @@
-import { CalendarPage } from 'pages'
+import { Calendar} from 'widgets'
 import styles from './index.module.scss'
 
 export const App = () => {
   return (
     <div className={styles.app}>
-      <CalendarPage />
+      <Calendar />
     </div>
   )
 }

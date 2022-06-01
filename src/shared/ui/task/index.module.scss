@@ -1,0 +1,41 @@
+$pink: #ffe2f3;
+$light-pink: #d11c85;
+$green: #d6ffd6;
+$light-green: #10cf1a;
+$blue: #d5e2ff;
+$light-blue: #182bd8;
+
+.task {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 7px;
+  position: relative;
+  height: 40px;
+  width: 90%;
+  background-color: $blue;
+  border-radius: 0 7px 7px 0;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    background-color: $light-blue;
+  }
+}
+
+.done {
+  background-color: $green;
+  &::before {
+    background-color: $light-green;
+  }
+}
+
+.notDone {
+  background-color: $pink;
+  &::before {
+    background-color: $light-pink;
+  }
+}

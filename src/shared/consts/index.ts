@@ -1,0 +1,20 @@
+export const DATE = {
+  FIRST_MONTH: 0,
+  LAST_MONTH: 11,
+  MONTHS: [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ],
+  WEEK_DAYS: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+  WEEK_DAYS_NUMBER: 7,
+}
