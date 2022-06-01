@@ -1,6 +1,8 @@
+export type TaskStateType = 'done' | 'notDone' | 'progress'
+
 export type TaskType = {
   id: number
-  state?: 'done' | 'notDone'
+  state: TaskStateType
   text: string
 }
 
