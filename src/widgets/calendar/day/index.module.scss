@@ -2,6 +2,7 @@
 
 .day {
   padding-left: 3px;
+  padding-top: 3px;
   vertical-align: top;
   position: relative;
   border: 0.5px solid $gray;
@@ -15,7 +16,7 @@
 }
 
 .today {
-  background-color: $light-green;
+  background-color: $light-yellow;
 }
 
 .disabled {

@@ -6,7 +6,7 @@ const formatDate = ({ day, month }: DateType) => `${day}.${month}`
 
 export const useTasks = () => {
   const [tasks, setTasks] = useState<{ [index: string]: TaskType[] }>(
-    JSON.parse(localStorage.getItem('tasks') || '')
+    JSON.parse(localStorage.getItem('tasks') || '[]')
   )
 
   useEffect(() => {

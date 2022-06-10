@@ -1,15 +1,16 @@
-$pink: #ffe2f3;
+$pink: #ffd1ec;
 $light-pink: #d11c85;
-$green: #d6ffd6;
+$green: #c8ffc8;
 $light-green: #10cf1a;
-$blue: #d5e2ff;
+$blue: #cadbff;
 $light-blue: #182bd8;
 
 .task {
+  position: relative;
+  word-break: break-all;
   font-size: 12px;
   font-weight: 500;
-  padding: 3px 7px;
-  position: relative;
+  padding: 3px 12% 3px 7px;
   height: 40px;
   width: 90%;
   background-color: $blue;
@@ -38,4 +39,23 @@ $light-blue: #182bd8;
   &::before {
     background-color: $light-pink;
   }
+}
+
+.text {
+  height: 100%;
+  overflow: hidden;
+}
+
+.toolbar {
+  position: absolute;
+  right: 0;
+  top: -35px;
+  z-index: 1000;
+}
+
+.menuIcon {
+  position: absolute;
+  left: 90%;
+  top: 5px;
+  cursor: pointer;
 }

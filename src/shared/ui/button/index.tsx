@@ -1,7 +1,7 @@
 import styles from './index.module.scss'
 
 interface Props extends React.HTMLProps<HTMLButtonElement> {
-  children?: React.ReactNode
+  children?: string
 }
 
 export const Button = ({ children, disabled, onClick }: Props) => {
