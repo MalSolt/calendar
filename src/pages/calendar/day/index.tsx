@@ -20,10 +20,10 @@ export const Day = ({ date, onClick }: Props) => {
       onClick={onClick}
     >
       {tasks.slice(0, 2).map((task) => (
-        <Task {...task} className={styles.task} />
+        <Task {...task} className={styles.task} key={task.id} />
       ))}
       {tasks.length > 2 && <span className={styles.tasksInfo}> +{tasks.slice(2).length} more</span>}
-      <span className={styles.dayNumber}>{date.day}</span>
+      <span className={styles.dayNumber}>{date.day || null}</span>
     </td>
   )
 }

@@ -19,6 +19,7 @@ export const Calendar = () => {
       </tr>
     </thead>
   )
+console.log(monthDays, month)
 
   const tbody = (
     <tbody>

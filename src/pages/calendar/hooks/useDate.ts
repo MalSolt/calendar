@@ -1,24 +1,41 @@
 import { getDay, getDaysInMonth, getMonth, getYear } from 'date-fns'
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { DATE } from 'shared/consts'
 
 const { FIRST_MONTH, LAST_MONTH, WEEK_DAYS_NUMBER } = DATE
 
+const getInitialDate = () => {
+  const month = getMonth(new Date())
+  const year = getYear(new Date())
+  const monthDaysCount = getDaysInMonth(new Date(year, month))
+  const monthFirstDay = getDay(new Date(year, month))
+  return { month, year, monthDaysCount, monthFirstDay }
+}
+
 export const useDate = () => {
-  const [month, setMonth] = useState(getMonth(new Date()))
-  const [monthDaysCount, setMonthDaysCount] = useState(getDaysInMonth(new Date()))
-  const [monthFirstDay, setMonthFirstDay] = useState(getDay(new Date()))
-  const [year] = useState(getYear(new Date()))
+  const [date, setDate] = useState(getInitialDate())
 
   const toPrevMonth = () => {
-    if (month !== FIRST_MONTH) {
-      setMonth(month - 1)
+    if (date.month !== FIRST_MONTH) {
+      const newMonth = date.month - 1
+      setDate({
+        ...date,
+        month: newMonth,
+        monthDaysCount: getDaysInMonth(new Date(date.year, newMonth)),
+        monthFirstDay: getDay(new Date(date.year, newMonth)),
+      })
     }
   }
 
   const toNextMonth = () => {
-    if (month !== LAST_MONTH) {
-      setMonth(month + 1)
+    if (date.month !== LAST_MONTH) {
+      const newMonth = date.month + 1
+      setDate({
+        ...date,
+        month: newMonth,
+        monthDaysCount: getDaysInMonth(new Date(date.year, newMonth)),
+        monthFirstDay: getDay(new Date(date.year, newMonth)),
+      })
     }
   }
 
@@ -27,8 +44,8 @@ export const useDate = () => {
       .fill(null)
       .map((_, index) => index)
       .map((elem) =>
-        elem >= monthFirstDay && elem < monthDaysCount + monthFirstDay
-          ? elem - monthFirstDay + 1
+        elem >= date.monthFirstDay && elem < date.monthDaysCount + date.monthFirstDay
+          ? elem - date.monthFirstDay + 1
           : null
       )
 
@@ -39,15 +56,10 @@ export const useDate = () => {
           .fill(null)
           .map((_, elemIndex) => monthDays[elemIndex + WEEK_DAYS_NUMBER * arrIndex])
       )
-  }, [monthDaysCount, monthFirstDay])
-
-  useEffect(() => {
-    setMonthFirstDay(getDay(new Date(year, month)))
-    setMonthDaysCount(getDaysInMonth(new Date(year, month)))
-  }, [month, year])
+  }, [date])
 
   return {
-    month,
+    month: date.month,
     toPrevMonth,
     toNextMonth,
     monthDays,
