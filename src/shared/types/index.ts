@@ -1,3 +1,5 @@
+export type TasksState = Record<string, TaskType[]>
+
 export type TaskStateType = 'done' | 'notDone' | 'progress'
 
 export type TaskType = {

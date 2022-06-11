@@ -1,5 +1,6 @@
 import { format, getMonth } from 'date-fns'
+import { DateType } from 'shared/types'
 
-export const isToday = (day: number | null, month: number) => {
+export const isToday = ({ day, month }: DateType) => {
   return +format(new Date(), 'dd') === day && month === getMonth(new Date())
 }
