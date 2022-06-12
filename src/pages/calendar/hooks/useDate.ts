@@ -1,6 +1,7 @@
 import { getDay, getDaysInMonth, getMonth, getYear } from 'date-fns'
 import { useMemo, useState } from 'react'
 import { DATE } from 'shared/consts'
+import { newArr } from 'shared/helpers'
 
 const { FIRST_MONTH, LAST_MONTH, WEEK_DAYS_NUMBER } = DATE
 
@@ -39,24 +40,17 @@ export const useDate = () => {
     }
   }
 
-  const monthDays = useMemo(() => {
-    const monthDays = new Array(42)
-      .fill(null)
-      .map((_, index) => index)
-      .map((elem) =>
-        elem >= date.monthFirstDay && elem < date.monthDaysCount + date.monthFirstDay
-          ? elem - date.monthFirstDay + 1
-          : null
-      )
-
-    return new Array(6)
-      .fill([])
-      .map((_, arrIndex) =>
-        new Array(7)
-          .fill(null)
-          .map((_, elemIndex) => monthDays[elemIndex + WEEK_DAYS_NUMBER * arrIndex])
-      )
-  }, [date])
+  const monthDays = useMemo(
+    () =>
+      newArr(6).map((_, weekIndex) =>
+        newArr(7).map((_, dayIndex) => {
+          const day = dayIndex + weekIndex * WEEK_DAYS_NUMBER
+          const monthLastDay = date.monthDaysCount + date.monthFirstDay
+          return day >= date.monthFirstDay && day < monthLastDay ? day - date.monthFirstDay + 1 : 0
+        })
+      ),
+    [date]
+  )
 
   return {
     month: date.month,

@@ -19,7 +19,6 @@ export const Calendar = () => {
       </tr>
     </thead>
   )
-console.log(monthDays, month)
 
   const tbody = (
     <tbody>
@@ -28,7 +27,7 @@ console.log(monthDays, month)
           {week.map((day, dayIndex) => (
             <Day
               key={dayIndex}
-              date={{ day: day || 0, month }}
+              date={{ day, month }}
               onClick={day ? () => sidepanel.open({ day, month }) : undefined}
             />
           ))}
