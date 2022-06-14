@@ -3,7 +3,7 @@ export type TasksState = Record<string, TaskType[]>
 export type TaskStateType = 'done' | 'notDone' | 'progress'
 
 export type TaskType = {
-  id: number
+  id: string
   state: TaskStateType
   text: string
 }
@@ -11,4 +11,5 @@ export type TaskType = {
 export type DateType = {
   day: number
   month: number
+  year: number
 }

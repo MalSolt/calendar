@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { DateType } from 'shared/types'
 import { Input } from 'shared/ui'
+import { addTask } from 'store/tasks'
 
 interface Props {
-  addTask: (text: string) => void
+  date: DateType
 }
 
-export const AddTask = ({ addTask }: Props) => {
+export const AddTask = ({ date }: Props) => {
+  const dispatch = useDispatch()
   const [inputValue, setInputValue] = useState('')
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,8 +17,9 @@ export const AddTask = ({ addTask }: Props) => {
   }
 
   const handleEnter = () => {
-    if (!inputValue.trim()) return
-    addTask(inputValue)
+    const text = inputValue.trim()
+    if (!text) return
+    dispatch(addTask({ text, date }))
     setInputValue('')
   }
 

@@ -1,2 +1,15 @@
+@import 'styles/vars';
+
 .wrapper {
+  padding: 20px;
+  height: 100vh;
+  background-color: $task-light-blue;
+}
+
+.done {
+  background-color: $task-light-green;
+}
+
+.notDone {
+  background-color: $task-light-pink;
 }

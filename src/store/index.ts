@@ -3,6 +3,7 @@ import storage from 'redux-persist/lib/storage'
 import { combineReducers } from 'redux'
 import { persistReducer } from 'redux-persist'
 import tasks from './tasks'
+import date from './date'
 
 const persistConfig = {
   key: 'tasks',
@@ -12,6 +13,7 @@ const persistConfig = {
 
 const reducers = combineReducers({
   tasks,
+  date,
 })
 
 const persistedReducer = persistReducer(persistConfig, reducers)

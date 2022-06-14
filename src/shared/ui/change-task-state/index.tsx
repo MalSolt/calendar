@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import Select from 'react-select'
 import { TaskStateType } from 'shared/types'
+import { changeTaskState } from 'store/tasks'
 
 type OptionType<T extends TaskStateType = TaskStateType> = {
   value: T
@@ -15,10 +17,11 @@ const options: { [key in TaskStateType]: OptionType<key> } = {
 
 interface Props {
   state: TaskStateType
-  onChange: (value: TaskStateType) => void
+  id: string
 }
 
-export const ChangeTaskState = ({ state, onChange }: Props) => {
+export const ChangeTaskState = ({ state, id }: Props) => {
+  const dispatch = useDispatch()
   const [selectedOption, setSelectedOption] = useState<OptionType>(options[state])
 
   return (
@@ -28,8 +31,8 @@ export const ChangeTaskState = ({ state, onChange }: Props) => {
       onChange={(option) => {
         if (!option) return
         setSelectedOption(option)
-        onChange(option.value)
+        dispatch(changeTaskState({ id, newState: option.value }))
       }}
     />
-  ) 
+  )
 }

@@ -1,1 +1,1 @@
-export const toTask = (id: number) => `/task/${id}`
+export const toTask = (id: string) => `/task/${id}`

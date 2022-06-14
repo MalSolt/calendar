@@ -3,7 +3,7 @@ import { DateType } from 'shared/types'
 
 export const useSidepanel = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [date, setDate] = useState<DateType>({ day: 1, month: 1 })
+  const [date, setDate] = useState<DateType>({} as DateType)
 
   const open = (date: DateType) => {
     setIsOpen(true)

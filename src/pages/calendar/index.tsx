@@ -1,14 +1,16 @@
+import { useSelector } from 'react-redux'
 import { DATE } from 'shared/consts'
+import { getDate, getMonthDays } from 'store/date'
 import { Controllers } from './controllers'
 import { Day } from './day'
-import { useDate } from './hooks/useDate'
 import { useSidepanel } from './hooks/useSidepanel'
 import styles from './index.module.scss'
 import { Sidepanel } from './sidepanel'
 
 export const Calendar = () => {
   const sidepanel = useSidepanel()
-  const { month, toPrevMonth, toNextMonth, monthDays } = useDate()
+  const { month, year } = useSelector(getDate)
+  const monthDays = useSelector(getMonthDays)
 
   const thead = (
     <thead>
@@ -27,8 +29,8 @@ export const Calendar = () => {
           {week.map((day, dayIndex) => (
             <Day
               key={dayIndex}
-              date={{ day, month }}
-              onClick={day ? () => sidepanel.open({ day, month }) : undefined}
+              date={{ day, month, year }}
+              onClick={day ? () => sidepanel.open({ day, month, year }) : undefined}
             />
           ))}
         </tr>
@@ -39,7 +41,7 @@ export const Calendar = () => {
   return (
     <div className={styles.wrapper}>
       <Sidepanel isOpen={sidepanel.isOpen} onClose={sidepanel.close} date={sidepanel.date} />
-      <Controllers month={month} toPrevMonth={toPrevMonth} toNextMonth={toNextMonth} />
+      <Controllers />
       <table className={styles.table}>
         {thead}
         {tbody}

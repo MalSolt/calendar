@@ -1,9 +1,4 @@
-$pink: #ffd1ec;
-$light-pink: #d11c85;
-$green: #c8ffc8;
-$light-green: #10cf1a;
-$blue: #cadbff;
-$light-blue: #182bd8;
+@import 'styles/vars';
 
 .task {
   cursor: pointer;
@@ -14,7 +9,7 @@ $light-blue: #182bd8;
   padding: 3px 12% 3px 7px;
   height: 40px;
   width: 90%;
-  background-color: $blue;
+  background-color: $task-light-blue;
   border-radius: 0 7px 7px 0;
 
   &::before {
@@ -24,21 +19,21 @@ $light-blue: #182bd8;
     bottom: 0;
     left: 0;
     width: 3px;
-    background-color: $light-blue;
+    background-color: $task-blue;
   }
 }
 
 .done {
-  background-color: $green;
+  background-color: $task-light-green;
   &::before {
-    background-color: $light-green;
+    background-color: $task-green;
   }
 }
 
 .notDone {
-  background-color: $pink;
+  background-color: $task-light-pink;
   &::before {
-    background-color: $light-pink;
+    background-color: $task-pink;
   }
 }
 
