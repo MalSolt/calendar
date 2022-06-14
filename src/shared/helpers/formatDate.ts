@@ -1,3 +1,3 @@
-import { DateType } from "shared/types";
+import { DateType } from 'shared/types'
 
-export const formatDate = ({ day, month }: DateType) => `${day}.${month}`
+export const formatDate = ({ day, month, year }: DateType) => `${day}.${month}.${year}`
