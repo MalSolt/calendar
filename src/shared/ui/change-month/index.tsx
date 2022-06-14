@@ -19,21 +19,12 @@ const currentMonth = getMonth(new Date())
 
 const options = newArr(12).map((_, index) => createOption(index))
 
-const styles = {
-  menu: (base: any) => ({
-    ...base,
-    width: 'max-content',
-    minWidth: '100%',
-  }),
-}
-
 export const ChangeMonth = () => {
   const dispatch = useDispatch()
   const [selectedOption, setSelectedOption] = useState<OptionType>(createOption(currentMonth))
 
   return (
     <Select
-      styles={styles}
       value={selectedOption}
       options={options}
       onChange={(option) => {
