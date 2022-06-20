@@ -2,14 +2,18 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { changeTaskText } from 'store/tasks'
 import { Input } from '..'
+import pencilIcon from 'shared/images/pencil.svg'
+import styles from './index.module.scss'
+import clsx from 'clsx'
 
 interface Props {
   text: string
   id: string
+  edit?: boolean
   className?: string
 }
 
-export const ChangeTaskText = ({ text, id, className }: Props) => {
+export const ChangeTaskText = ({ text, id, edit = true, className }: Props) => {
   const dispatch = useDispatch()
   const [inputValue, setInputValue] = useState(text)
   const [editMode, setEditMode] = useState(false)
@@ -31,10 +35,14 @@ export const ChangeTaskText = ({ text, id, className }: Props) => {
       value={inputValue}
       onChange={handleChangeInput}
       onEnter={handleEditText}
+      autoFocus
     />
   ) : (
-    <div className={className} onClick={handleActivateEditMode}>
+    <div className={clsx(styles.text, className)}>
       {text}
+      {edit && (
+        <img className={styles.pencil} src={pencilIcon} alt='' onClick={handleActivateEditMode} />
+      )}
     </div>
   )
 }

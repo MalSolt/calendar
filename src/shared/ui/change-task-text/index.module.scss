@@ -1,0 +1,15 @@
+.text {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 5px;
+  line-height: 1;
+}
+
+.pencil {
+  width: 14px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+  }
+}

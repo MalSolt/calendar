@@ -34,7 +34,7 @@ export const Task = ({ id, text, state, className, toolbar }: Props) => {
         [styles.notDone]: state === 'notDone',
       })}
     >
-      <ChangeTaskText text={text} id={id} className={styles.text} />
+      <ChangeTaskText text={text} id={id} className={styles.text} edit={!!toolbar} />
       <div ref={toolbarRef}>
         {isToolbarOpen && <div className={styles.toolbar}>{toolbar}</div>}
         {toolbar && (

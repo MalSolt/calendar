@@ -23,9 +23,8 @@ export const Task = () => {
         [styles.notDone]: state === 'notDone',
       })}
     >
-      <h1>{text}</h1>
-      <ChangeTaskState state={state} id={id} />
       <ChangeTaskText text={text} id={id} />
+      <ChangeTaskState state={state} id={id} />
     </div>
   )
 }
