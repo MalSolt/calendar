@@ -5,6 +5,7 @@ import { useClickOutside } from 'shared/hooks'
 import menuIcon from 'shared/images/menu.png'
 import { toTask } from 'shared/routing'
 import { TaskType } from 'shared/types'
+import { ChangeTaskText } from '..'
 import styles from './index.module.scss'
 
 interface Props extends TaskType {
@@ -33,7 +34,7 @@ export const Task = ({ id, text, state, className, toolbar }: Props) => {
         [styles.notDone]: state === 'notDone',
       })}
     >
-      <div className={styles.text}>{text}</div>
+      <ChangeTaskText text={text} id={id} className={styles.text} />
       <div ref={toolbarRef}>
         {isToolbarOpen && <div className={styles.toolbar}>{toolbar}</div>}
         {toolbar && (

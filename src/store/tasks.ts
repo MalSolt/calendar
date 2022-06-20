@@ -20,6 +20,13 @@ export const tasksSlice = createSlice({
         .find((task) => task.id === id)
       if (targetTask) targetTask.state = newState
     },
+    changeTaskText: (state, action: PayloadAction<{ id: string; text: string }>) => {
+      const { id, text } = action.payload
+      const targetTask = Object.values(state)
+        .flat()
+        .find((task) => task.id === id)
+      if (targetTask) targetTask.text = text
+    },
   },
 })
 
@@ -34,6 +41,6 @@ export const getDayTasks = (date: DateType) => (state: RootState) => {
   return dayTasks || []
 }
 
-export const { addTask, changeTaskState } = tasksSlice.actions
+export const { addTask, changeTaskState, changeTaskText } = tasksSlice.actions
 
 export default tasksSlice.reducer
