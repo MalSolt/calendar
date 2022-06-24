@@ -13,6 +13,11 @@ export const tasksSlice = createSlice({
       const key = formatDate(date)
       state[key] = [{ id, text, state: 'progress' }, ...(state[key] || [])]
     },
+    deleteTask: (state, action: PayloadAction<{ id: string; date: DateType }>) => {
+      const { id, date } = action.payload
+      const key = formatDate(date)
+      state[key] = state[key].filter((task) => task.id !== id)
+    },
     changeTaskState: (state, action: PayloadAction<{ id: string; newState: TaskStateType }>) => {
       const { id, newState } = action.payload
       const targetTask = Object.values(state)
@@ -41,6 +46,6 @@ export const getDayTasks = (date: DateType) => (state: RootState) => {
   return dayTasks || []
 }
 
-export const { addTask, changeTaskState, changeTaskText } = tasksSlice.actions
+export const { addTask, deleteTask, changeTaskState, changeTaskText } = tasksSlice.actions
 
 export default tasksSlice.reducer

@@ -5,7 +5,7 @@ import { DATE } from 'shared/consts'
 import { newArr } from 'shared/helpers'
 import { RootState } from 'store'
 
-const { FIRST_MONTH, LAST_MONTH, WEEK_DAYS_NUMBER } = DATE
+const { WEEK_DAYS_NUMBER } = DATE
 
 const getInitialDate = () => {
   const month = getMonthFNS(new Date())

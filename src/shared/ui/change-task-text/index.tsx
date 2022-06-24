@@ -9,11 +9,11 @@ import clsx from 'clsx'
 interface Props {
   text: string
   id: string
-  edit?: boolean
+  editable?: boolean
   className?: string
 }
 
-export const ChangeTaskText = ({ text, id, edit = true, className }: Props) => {
+export const ChangeTaskText = ({ text, id, editable = true, className }: Props) => {
   const dispatch = useDispatch()
   const [inputValue, setInputValue] = useState(text)
   const [editMode, setEditMode] = useState(false)
@@ -40,7 +40,7 @@ export const ChangeTaskText = ({ text, id, edit = true, className }: Props) => {
   ) : (
     <div className={clsx(styles.text, className)}>
       {text}
-      {edit && (
+      {editable && (
         <img className={styles.pencil} src={pencilIcon} alt='' onClick={handleActivateEditMode} />
       )}
     </div>

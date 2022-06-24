@@ -1,6 +1,4 @@
 export const DATE = {
-  FIRST_MONTH: 0,
-  LAST_MONTH: 11,
   MONTHS: [
     'January',
     'February',

@@ -1,11 +1,10 @@
 import clsx from 'clsx'
-import React, { useCallback, useRef, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useClickOutside } from 'shared/hooks'
 import menuIcon from 'shared/images/menu.png'
 import { toTask } from 'shared/routing'
 import { TaskType } from 'shared/types'
-import { ChangeTaskText } from '..'
+import { ChangeTaskText, Popover } from '..'
 import styles from './index.module.scss'
 
 interface Props extends TaskType {
@@ -16,10 +15,8 @@ interface Props extends TaskType {
 export const Task = ({ id, text, state, className, toolbar }: Props) => {
   const navigate = useNavigate()
   const [isToolbarOpen, setIsToolbarOpen] = useState(false)
-  const toolbarRef = useRef<HTMLDivElement | null>(null)
-  const handleClosePopover = useCallback(() => setIsToolbarOpen(false), [])
-  useClickOutside(toolbarRef, handleClosePopover)
 
+  const handleClosePopover = useCallback(() => setIsToolbarOpen(false), [])
   const handleToggleToolbar = () => setIsToolbarOpen((prev) => !prev)
 
   const handleNavigateToTask = () => {
@@ -34,13 +31,19 @@ export const Task = ({ id, text, state, className, toolbar }: Props) => {
         [styles.notDone]: state === 'notDone',
       })}
     >
-      <ChangeTaskText text={text} id={id} className={styles.text} edit={!!toolbar} />
-      <div ref={toolbarRef}>
-        {isToolbarOpen && <div className={styles.toolbar}>{toolbar}</div>}
-        {toolbar && (
-          <img className={styles.menuIcon} src={menuIcon} alt='' onClick={handleToggleToolbar} />
-        )}
-      </div>
+      <ChangeTaskText text={text} id={id} className={styles.text} editable={!!toolbar} />
+      {toolbar && (
+        <>
+          <Popover
+            containerClassName={styles.popover}
+            onClickOutside={handleClosePopover}
+            isOpen={isToolbarOpen}
+            content={<div className={styles.toolbar}>{toolbar}</div>}
+          >
+            <img src={menuIcon} alt='' onClick={handleToggleToolbar} />
+          </Popover>
+        </>
+      )}
     </div>
   )
 }

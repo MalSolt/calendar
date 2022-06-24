@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { DateType } from 'shared/types'
-import { AddTask, ChangeTaskState, Sidepanel as SharedSidepanel, Task } from 'shared/ui'
+import { AddTask, ChangeTaskState, DeleteTask, Sidepanel as SharedSidepanel, Task } from 'shared/ui'
 import { getDayTasks } from 'store/tasks'
 import styles from './index.module.scss'
 
@@ -21,7 +21,12 @@ export const Sidepanel = ({ isOpen, onClose, date }: Props) => {
           {...task}
           key={task.id}
           className={styles.task}
-          toolbar={<ChangeTaskState state={task.state} id={task.id} />}
+          toolbar={
+            <>
+              <DeleteTask id={task.id} date={date} />
+              <ChangeTaskState state={task.state} id={task.id} />
+            </>
+          }
         />
       ))}
     </SharedSidepanel>

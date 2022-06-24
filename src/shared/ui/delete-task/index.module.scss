@@ -1,0 +1,12 @@
+@import 'styles/vars';
+
+.cross {
+  cursor: pointer;
+  color: $red;
+  font-size: 30px;
+  font-weight: 900;
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.2);
+  }
+}

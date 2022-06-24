@@ -1,12 +1,16 @@
 @import 'styles/vars';
 
 .task {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
   cursor: pointer;
   position: relative;
   word-break: break-all;
   font-size: 12px;
   font-weight: 500;
-  padding: 3px 12% 3px 7px;
+  padding: 4px 8px;
   height: 40px;
   width: 90%;
   background-color: $task-light-blue;
@@ -42,16 +46,15 @@
   overflow: hidden;
 }
 
-.toolbar {
-  position: absolute;
-  right: 0;
-  top: -35px;
-  z-index: 1000;
+.popover {
+  background-color: $white;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid $black;
 }
 
-.menuIcon {
-  position: absolute;
-  left: 90%;
-  top: 5px;
-  cursor: pointer;
+.toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
