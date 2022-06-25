@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { DateType } from 'shared/types'
 import { deleteTask } from 'store/tasks'
-import styles from './index.module.scss'
+import { Cross } from '..'
 
 interface Props {
   id: string
@@ -12,9 +12,5 @@ export const DeleteTask = ({ id, date }: Props) => {
 
   const handleDeleteTask = () => dispatch(deleteTask({ id, date }))
 
-  return (
-    <div className={styles.cross} onClick={handleDeleteTask}>
-      &times;
-    </div>
-  )
+  return <Cross onClick={handleDeleteTask} />
 }

@@ -1,3 +1,4 @@
+import { Cross } from '..'
 import styles from './index.module.scss'
 
 interface Props {
@@ -11,9 +12,7 @@ export const Modal = ({ isOpen, children, onClose }: Props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.modal}>
-        <div className={styles.cross} onClick={onClose}>
-          &times;
-        </div>
+        <Cross onClick={onClose} />
         {children}
       </div>
     </div>

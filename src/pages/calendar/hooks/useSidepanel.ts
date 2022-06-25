@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
+import { defaultDate } from 'shared/consts'
 import { DateType } from 'shared/types'
 
 export const useSidepanel = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [date, setDate] = useState<DateType>({} as DateType)
+  const [date, setDate] = useState<DateType>(defaultDate)
 
   const open = (date: DateType) => {
     setIsOpen(true)
@@ -16,6 +17,7 @@ export const useSidepanel = () => {
     const onKeydown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         close()
+        setDate(defaultDate)
       }
     }
 

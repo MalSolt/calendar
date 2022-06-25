@@ -28,19 +28,3 @@
   transition: 0.2s;
   transform: translateX(0px);
 }
-
-.cross {
-  margin-left: auto;
-  margin-bottom: 10px;
-  font-size: 30px;
-  color: $red;
-  font-weight: 900;
-  cursor: pointer;
-  width: 30px;
-  text-align: center;
-  height: 30px;
-  transition: 0.2s;
-  &:hover {
-    transform: scale(1.2);
-  }
-}

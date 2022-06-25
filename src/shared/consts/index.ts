@@ -1,3 +1,5 @@
+import { DateType } from 'shared/types'
+
 export const DATE = {
   MONTHS: [
     'January',
@@ -15,4 +17,10 @@ export const DATE = {
   ],
   WEEK_DAYS: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
   WEEK_DAYS_NUMBER: 7,
+}
+
+export const defaultDate: DateType = {
+  day: 0,
+  month: 0,
+  year: 0,
 }

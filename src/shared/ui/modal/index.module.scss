@@ -24,17 +24,4 @@
   padding: 20px;
 }
 
-.cross {
-  margin-left: auto;
-  font-size: 30px;
-  color: $red;
-  font-weight: 900;
-  cursor: pointer;
-  width: 30px;
-  text-align: center;
-  height: 30px;
-  transition: 0.2s;
-  &:hover {
-    transform: scale(1.2);
-  }
-}
+
