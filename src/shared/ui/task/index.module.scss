@@ -1,6 +1,8 @@
 @import 'styles/vars';
 
-.task {
+.progress,
+.done,
+.notDone {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -13,9 +15,7 @@
   padding: 4px 8px;
   height: 40px;
   width: 90%;
-  background-color: $task-light-blue;
   border-radius: 0 7px 7px 0;
-
   &::before {
     position: absolute;
     content: '';
@@ -23,6 +23,12 @@
     bottom: 0;
     left: 0;
     width: 3px;
+  }
+}
+
+.progress {
+  background-color: $task-light-blue;
+  &::before {
     background-color: $task-blue;
   }
 }

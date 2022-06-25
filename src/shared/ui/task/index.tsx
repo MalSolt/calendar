@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import menuIcon from 'shared/images/menu.png'
 import { toTask } from 'shared/routing'
@@ -16,22 +16,13 @@ export const Task = ({ id, text, state, className, toolbar }: Props) => {
   const navigate = useNavigate()
   const [isToolbarOpen, setIsToolbarOpen] = useState(false)
 
-  const handleClosePopover = useCallback(() => setIsToolbarOpen(false), [])
+  const handleClosePopover = () => setIsToolbarOpen(false)
   const handleToggleToolbar = () => setIsToolbarOpen((prev) => !prev)
-
-  const handleNavigateToTask = () => {
-    navigate(toTask(id))
-  }
+  const handleNavigateToTask = () => navigate(toTask(id))
 
   return (
-    <div
-      onDoubleClick={handleNavigateToTask}
-      className={clsx(styles.task, className, {
-        [styles.done]: state === 'done',
-        [styles.notDone]: state === 'notDone',
-      })}
-    >
-      <ChangeTaskText text={text} id={id} className={styles.text} editable={!!toolbar} />
+    <div onDoubleClick={handleNavigateToTask} className={clsx(styles[state], className)}>
+      <ChangeTaskText text={text} id={id} className={styles.text} editable={Boolean(toolbar)} />
       {toolbar && (
         <>
           <Popover
