@@ -6,7 +6,7 @@ export const App = () => {
   return (
     <div className={styles.app}>
       <Routes>
-        <Route path='calendar' element={<Calendar />} />
+        <Route path='/' element={<Calendar />} />
         <Route path='task/:id' element={<Task />} />
       </Routes>
     </div>
