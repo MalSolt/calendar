@@ -9,7 +9,7 @@ interface Props {
 }
 export const DeleteTask = ({ id, date }: Props) => {
   const dispatch = useDispatch()
-
+  
   const handleDeleteTask = () => dispatch(deleteTask({ id, date }))
 
   return <Cross onClick={handleDeleteTask} />

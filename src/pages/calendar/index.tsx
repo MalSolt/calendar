@@ -30,7 +30,7 @@ export const Calendar = () => {
             <Day
               key={dayIndex}
               date={{ day, month, year }}
-              onClick={day ? () => sidepanel.open({ day, month, year }) : undefined}
+              onClick={() => sidepanel.open({ day, month, year })}
             />
           ))}
         </tr>

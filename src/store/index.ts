@@ -1,9 +1,9 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
-import storage from 'redux-persist/lib/storage'
 import { combineReducers } from 'redux'
 import { persistReducer } from 'redux-persist'
-import tasks from './tasks'
+import storage from 'redux-persist/lib/storage'
 import date from './date'
+import tasks from './tasks'
 
 const persistConfig = {
   key: 'tasks',

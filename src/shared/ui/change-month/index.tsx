@@ -14,9 +14,7 @@ type OptionType = {
 }
 
 const createOption = (value: number) => ({ value, label: `${MONTHS[value]}` })
-
 const currentMonth = getMonth(new Date())
-
 const options = newArr(12).map((_, index) => createOption(index))
 
 export const ChangeMonth = () => {

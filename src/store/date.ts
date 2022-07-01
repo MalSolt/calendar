@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { getDay, getDaysInMonth, getMonth as getMonthFNS, getYear as getYearFNS } from 'date-fns'
+import { getDay, getDaysInMonth, getMonth, getYear } from 'date-fns'
 import { createSelector } from 'reselect'
 import { DATE } from 'shared/consts'
 import { newArr } from 'shared/helpers'
@@ -8,8 +8,8 @@ import { RootState } from 'store'
 const { WEEK_DAYS_NUMBER } = DATE
 
 const getInitialDate = () => {
-  const month = getMonthFNS(new Date())
-  const year = getYearFNS(new Date())
+  const month = getMonth(new Date())
+  const year = getYear(new Date())
   const monthDaysCount = getDaysInMonth(new Date(year, month))
   const monthFirstDay = getDay(new Date(year, month))
   return { month, year, monthDaysCount, monthFirstDay }

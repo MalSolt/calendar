@@ -9,10 +9,9 @@ type OptionType = {
   value: number
   label: string
 }
+
 const createOption = (value: number) => ({ value, label: `${value}` })
-
 const currentYear = getYear(new Date())
-
 const options = newArr(11).map((_, index) => createOption(currentYear - 5 + index))
 
 export const ChangeYear = () => {

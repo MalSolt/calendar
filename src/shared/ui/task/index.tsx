@@ -24,16 +24,14 @@ export const Task = ({ id, text, state, className, toolbar }: Props) => {
     <div onDoubleClick={handleNavigateToTask} className={clsx(styles[state], className)}>
       <ChangeTaskText text={text} id={id} className={styles.text} editable={Boolean(toolbar)} />
       {toolbar && (
-        <>
-          <Popover
-            containerClassName={styles.popover}
-            onClickOutside={handleClosePopover}
-            isOpen={isToolbarOpen}
-            content={<div className={styles.toolbar}>{toolbar}</div>}
-          >
-            <img src={menuIcon} alt='' onClick={handleToggleToolbar} />
-          </Popover>
-        </>
+        <Popover
+          containerClassName={styles.popover}
+          onClickOutside={handleClosePopover}
+          isOpen={isToolbarOpen}
+          content={<div className={styles.toolbar}>{toolbar}</div>}
+        >
+          <img src={menuIcon} alt='' onClick={handleToggleToolbar} />
+        </Popover>
       )}
     </div>
   )

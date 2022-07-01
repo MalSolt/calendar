@@ -14,15 +14,20 @@ interface Props {
 export const Day = ({ date, onClick }: Props) => {
   const tasks = useSelector(getDayTasks(date))
 
+  const visibleTasksNumber = 2
+  const otherTasksNumber = tasks.length - visibleTasksNumber
+
+  const visibleTasks = tasks
+    .slice(0, visibleTasksNumber)
+    .map((task) => <Task {...task} className={styles.task} key={task.id} />)
+
   return (
     <td
       className={clsx(styles.day, { [styles.disabled]: !date.day, [styles.today]: isToday(date) })}
-      onClick={onClick}
+      onClick={date.day ? onClick : undefined}
     >
-      {tasks.slice(0, 2).map((task) => (
-        <Task {...task} className={styles.task} key={task.id} />
-      ))}
-      {tasks.length > 2 && <span className={styles.tasksInfo}> +{tasks.slice(2).length} more</span>}
+      {visibleTasks}
+      {otherTasksNumber > 0 && <span className={styles.tasksInfo}> +{otherTasksNumber} more</span>}
       <span className={styles.dayNumber}>{date.day || null}</span>
     </td>
   )
